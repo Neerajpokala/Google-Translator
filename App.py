@@ -1,11 +1,10 @@
 import streamlit as st
 from googletrans import Translator, LANGUAGES
 
-def translate_text():
+def translate_text(input_text):
     try:
         translator = Translator()
-        input_text = st.text_area("Enter the text to be translated:")
-        
+
         if not input_text:
             st.warning("Please enter text to translate.")
             return
@@ -28,7 +27,8 @@ def translate_text():
 def main():
     st.set_page_config(page_title="Text Translator", page_icon="🌎")
     st.title("Text Translator Supports 107 languages")
-    translate_text()
+    input_text = st.text_area("Enter the text to be translated:")
+    translate_text(input_text)
 
 if __name__ == "__main__":
     main()
