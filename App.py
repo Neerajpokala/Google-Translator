@@ -11,13 +11,8 @@ def translate_text(input_text):
         target_lang_key = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(target_lang)]
 
         if st.button("Translate"):
-            try:
-                translated_text = translator.translate(input_text, src=source_lang, dest=target_lang_key)
-                st.success(f"Translated text ({target_lang}): {translated_text.text}")
-            except Exception as e:
-                st.error(f"An error occurred during translation: {str(e)}")
-    else:
-        st.warning("Please provide text in a known language.")
+            translated_text = translator.translate(input_text, src=source_lang, dest=target_lang_key)
+            st.success(f"Translated text ({target_lang}): {translated_text.text}")
 
 def main():
     st.set_page_config(page_title="Text Translator", page_icon="🌎")
