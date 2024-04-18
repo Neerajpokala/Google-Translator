@@ -13,12 +13,12 @@ def main():
     st.set_page_config(page_title="Text Translator", page_icon="🌎")
     st.title("Text Translator Supports 107 languages")
 
+    input_text = st.text_area("Enter the text to be translated:")
+
     # Always show the selectbox and translate button
     target_lang = st.selectbox("Select the target language:", [LANGUAGES[lang] for lang in LANGUAGES])
     target_lang_key = list(LANGUAGES.keys())[list(LANGUAGES.values()).index(target_lang)]
     translate_button = st.button("Translate")
-
-    input_text = st.text_area("Enter the text to be translated:")
 
     if translate_button and input_text:
         translated_text = translate_text(input_text, target_lang_key)
